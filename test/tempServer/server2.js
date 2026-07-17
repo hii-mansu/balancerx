@@ -12,7 +12,7 @@ const server = http.createServer((req, res) => {
 
   res.end(
     JSON.stringify({
-      backend: "Backend-1",
+      backend: "Backend-2",
       method: req.method,
       url: req.url,
       time: new Date().toISOString(),
@@ -20,6 +20,6 @@ const server = http.createServer((req, res) => {
   );
 });
 
-server.listen(5001, () => {
-  console.log("Backend-1 running on port 5001");
+server.listen(5002, () => {
+  console.log("Backend-2 running on port 5002");
 });

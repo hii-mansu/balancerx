@@ -1,5 +1,12 @@
 import { config } from "../config/config.js";
+import { roundRobin } from "../algorithms/roundRobin.js";
 
 export function selectTarget() {
-  return config.targets[0];
+  switch (config.algorithm) {
+    case "round-robin":
+      return roundRobin(config.targets);
+
+    default:
+      throw new Error(`Unknown algorithm: ${config.algorithm}`);
+  }
 }

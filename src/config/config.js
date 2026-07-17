@@ -4,6 +4,7 @@ export const config = {
   algorithm: "round-robin",
 
   targets: [
-    "http://localhost:5001"
+    "http://localhost:5001",
+    "http://localhost:5002"
   ]
 };

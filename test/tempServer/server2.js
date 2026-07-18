@@ -2,8 +2,10 @@ import http from "node:http";
 
 const server = http.createServer((req, res) => {
   if (req.url === "/health") {
-    res.writeHead(200);
-    return res.end("OK");
+    return setTimeout(() => {
+      res.writeHead(200);
+      res.end("OK");
+    }, 1000);
   }
 
   res.writeHead(200, {
@@ -13,9 +15,7 @@ const server = http.createServer((req, res) => {
   res.end(
     JSON.stringify({
       backend: "Backend-2",
-      method: req.method,
-      url: req.url,
-      time: new Date().toISOString(),
+      path: req.url,
     })
   );
 });

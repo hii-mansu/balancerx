@@ -2,15 +2,18 @@ import http from "node:http";
 
 const server = http.createServer((req, res) => {
   if (req.url === "/health") {
-    res.writeHead(200);
-    return res.end("OK");
+    return setTimeout(() => {
+      res.writeHead(200);
+      res.end("OK");
+    }, 1000);
   }
 
   res.writeHead(200, {
     "Content-Type": "application/json",
   });
 
-  res.end(
+  setTimeout(() => {
+      res.end(
     JSON.stringify({
       backend: "Backend-1",
       method: req.method,
@@ -18,6 +21,9 @@ const server = http.createServer((req, res) => {
       time: new Date().toISOString(),
     })
   );
+}, 5000);
+
+
 });
 
 server.listen(5001, () => {

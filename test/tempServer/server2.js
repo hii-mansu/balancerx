@@ -12,12 +12,16 @@ const server = http.createServer((req, res) => {
     "Content-Type": "application/json",
   });
 
-  res.end(
+  setTimeout(() => {
+      res.end(
     JSON.stringify({
       backend: "Backend-2",
       path: req.url,
     })
   );
+}, 5000);
+
+
 });
 
 server.listen(5002, () => {

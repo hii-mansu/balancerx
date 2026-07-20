@@ -1,7 +1,7 @@
 import { selectTarget } from "../selector/selectTarget.js";
 import { proxyRequest } from "../proxy/proxy.js";
-import config from "../config/config.js";
 import { getHealthyTargets } from "../health/healthStore.js";
+import { config } from "../config/config.js";
 
 export async function requestHandler(req, res) {
   const canRetry = ["GET", "HEAD", "OPTIONS"].includes(req.method);

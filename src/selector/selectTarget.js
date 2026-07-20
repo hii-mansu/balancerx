@@ -1,17 +1,18 @@
 import { config } from "../config/config.js";
 import { roundRobin } from "../algorithms/roundRobin.js";
-import { getHealthyTargets } from "../health/healthStore.js";
+import { leastConnections } from "../algorithms/leastConnections.js";
 
-export function selectTarget() {
-  const healthyTargets = getHealthyTargets(config.targets);
-
-  if (healthyTargets.length === 0) {
+export function selectTarget(targets) {
+  if (targets.length === 0) {
     return null;
   }
 
   switch (config.algorithm) {
     case "round-robin":
-      return roundRobin(healthyTargets);
+      return roundRobin(targets);
+
+    case "least-connections":
+      return leastConnections(targets);
 
     default:
       throw new Error(`Unknown algorithm: ${config.algorithm}`);

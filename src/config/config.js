@@ -1,7 +1,7 @@
 export const config = {
   port: 8080,
 
-  algorithm: "round-robin",
+  algorithm: "least-connections",
 
   targets: [
     "http://localhost:5001",
@@ -9,6 +9,6 @@ export const config = {
   ],
   healthCheck: {
   interval: 5000,
-  timeout: 2000,
+  timeout: 5000,
 }
 };

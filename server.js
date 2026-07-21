@@ -1,10 +1,12 @@
 import app from "./src/app.js";
 import { config } from "./src/config/config.js";
 import { checkAllTargets } from "./src/health/healthChecker.js";
+import { validateConfig } from "./src/config/validateConfig.js";
 
 const PORT = config.port || 5000;
 let activeRequests = 0;
 
+validateConfig(config);
 const server = app.listen(PORT, async () => {
   console.log(`BalancerX running on PORT ${PORT}`);
 

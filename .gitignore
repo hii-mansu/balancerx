@@ -1,12 +1,12 @@
-# Dependencies
 node_modules/
 
-# Environment variables
 .env
 .env.*
 !.env.example
 
-# Logs
+config.yaml
+!config.yaml.example
+
 logs/
 *.log
 npm-debug.log*
@@ -14,43 +14,32 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Runtime files
 pids/
 *.pid
 *.pid.lock
 
-# Coverage
 coverage/
 
-# Build output
 dist/
 build/
 
-# Cache
 .cache/
 .eslintcache
 
-# OS files
 .DS_Store
 Thumbs.db
 
-# IDEs
 .vscode/
 .idea/
 
-# Temporary files
 tmp/
 temp/
 
-# npm
 .npm
 
-# Optional package manager files
 .pnp
 .pnp.js
 
-# Docker
 docker-compose.override.yml
 
-# Misc
 *.tgz

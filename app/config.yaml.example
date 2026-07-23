@@ -1,6 +1,4 @@
-port: 5000
-
-algorithm: least-connections
+algorithm: round-robin
 
 targets:
   - http://localhost:5001

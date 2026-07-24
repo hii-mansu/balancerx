@@ -12,28 +12,15 @@ on:
 
 jobs:
   deploy:
-    name: Build & Deploy Website to Vercel
+    name: Deploy Website to Vercel
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-
-      - name: Install Dependencies
+      - name: Deploy Website to Vercel
         working-directory: ./website
-        run: npm ci
-
-      - name: Build Website
-        working-directory: ./website
-        run: npm run build
-
-      - name: Deploy to Vercel
-        working-directory: ./website/dist
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}

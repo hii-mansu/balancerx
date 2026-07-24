@@ -43,3 +43,5 @@ temp/
 docker-compose.override.yml
 
 *.tgz
+
+.vercel/
